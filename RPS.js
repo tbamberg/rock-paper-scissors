@@ -1,4 +1,6 @@
 let options = ['rock', 'paper', 'scissors'];
+let playerChoice = "";
+let computerChoice = "";
 
 // create a function to get computer's choice
 //// create variable computerChoice
@@ -7,7 +9,7 @@ let options = ['rock', 'paper', 'scissors'];
 //// return computerChoice
 
 function getComputerChoice() {
-    let computerChoice = options[Math.floor(Math.random() * 3)];
+    computerChoice = options[Math.floor(Math.random() * 3)];
     return computerChoice;
 }
 
@@ -17,17 +19,17 @@ console.log(getComputerChoice());
 //// prompt player for input and store it in playerChoice
 //// convert playerChoice to lowercase
 //// check if playerChoice is included in options
-////// if true, return playerChoice
-////// if false, call invalidChoice function
+////// if not, alert and prompt again
+//// return playerChoice
 
 function getPlayerChoice() {
-    let playerChoice = prompt("Choose your weapon:");
+    playerChoice = prompt("Choose your weapon:");
     playerChoice = playerChoice.toLowerCase();
-    if (options.includes(playerChoice)) {
-        return playerChoice;
-    } else {
-        invalidChoice();
+    if (!options.includes(playerChoice)) {
+        alert('Invalid choice. Try "Rock", "Paper", or "Scissors"');
+        getPlayerChoice();
     }
+    return playerChoice;
 }
 
 console.log(getPlayerChoice());
