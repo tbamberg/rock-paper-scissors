@@ -55,29 +55,32 @@ function playRound() {
 
     if (computerChoice == "rock") {
         if (playerChoice == "rock") {
-            return "Tie!";
+            return "Tie";
         } else if (playerChoice = "paper") {
-            return "You win! Paper beats Rock";
-        } else { //playerChoice == scissors
-            return "You lose! Rock beats Scissors";
+            return "Win";
+        } else if (playerChoice == "scissors") {
+            return "Lose";
         }
     } else if (computerChoice == "paper") {
         if (playerChoice == "rock") {
-            return "You lose! Paper beats Rock";
+            return "Lose";
         } else if (playerChoice = "paper") {
-            return "Tie!";
-        } else { //playerChoice == scissors
-            return "You win! Scissors beats Paper";
+            return "Tie";
+        } else if (playerChoice == "scissors") {
+            return "Win";
         }
-    } else { //computerChoice == scissors
+    } else if (computerChoice == "scissors") { 
         if (playerChoice == "rock") {
-            return "You win! Rock beats Scissors";
+            return "Win";
         } else if (playerChoice = "paper") {
-            return "You lose! Scissors beats Paper";
-        } else { //playerChoice == scissors
-            return "Tie!";
+            return "Lose";
+        } else if (playerChoice == "scissors") {
+            return "Tie";
         }
     }
 }
 
 console.log(playRound());
+
+// create a function to play a game (5 rounds) of RPS
+// 
