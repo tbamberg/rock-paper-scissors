@@ -10,6 +10,7 @@ let computerChoice = "";
 
 function getComputerChoice() {
     computerChoice = options[Math.floor(Math.random() * 3)];
+    
     console.log("Computer: " + computerChoice);
     return computerChoice;
 }
@@ -24,10 +25,12 @@ function getComputerChoice() {
 function getPlayerChoice() {
     playerChoice = prompt("Choose your weapon:");
     playerChoice = playerChoice.toLowerCase();
+    
     if (!options.includes(playerChoice)) {
         alert('Invalid choice. Try "Rock", "Paper", or "Scissors"');
         getPlayerChoice();
     }
+    
     console.log("Player: " + playerChoice);
     return playerChoice;
 }
@@ -80,7 +83,40 @@ function playRound() {
     }
 }
 
-console.log(playRound());
-
 // create a function to play a game (5 rounds) of RPS
-// 
+//// create variable playerScore and init to 0
+//// create variable computerScore and init to 0
+//// create variable result and init to ""
+//// call playRound 5 times. for each round
+////// if "Win", playerScore++
+////// if "Lose", computerScore++
+//// after 5 rounds, compare playerScore and computerScore
+////// if playerScore > computerScore, "You Win! playerScore to computerScore"
+////// if playerScore = computerScore, "You Tie! playerScore to computerScore"
+////// if playerScore < computerScore, "You Lose! playerScore to computerScore"
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let result = "";
+
+    for (let i = 0; i < 5; i++) {
+        result = playRound();
+        if (result == "Win") {
+            playerScore++;
+        } else if (result == "Lose") {
+            computerScore++;
+        }
+        console.log(result);
+    }
+
+    if (playerScore > computerScore) {
+        return ("You Win! " + playerScore + " to " + computerScore);
+    } else if (playerScore < computerScore) {
+        return ("You Lose! " + playerScore + " to " + computerScore);
+    } else {
+        return ("You Tie! " + playerScore + " to " + computerScore);
+    }
+}
+
+console.log(game());
