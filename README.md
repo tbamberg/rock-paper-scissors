@@ -1,3 +1,7 @@
 # rock-paper-scissors
 
-Game by Adrien Coquet from <a href="https://thenounproject.com/browse/icons/term/game/" target="_blank" title="Game Icons">Noun Project</a> (CC BY 3.0)
+<a href="https://www.flaticon.com/free-icons/fist" title="fist icons">Fist icon created by Cuputo - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/hand" title="hand icons">Hand icons created by Cuputo - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/two-fingers" title="two fingers icons">Two fingers icon created by Cuputo - Flaticon</a>
