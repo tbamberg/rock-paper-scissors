@@ -1,0 +1,14 @@
+html {
+    background-color: #04041b;
+    color: aliceblue;
+    font-family: 'Rubik Mono One', monospace;
+}
+
+body {
+    width: 66%;
+    margin: auto;
+    text-align: center;
+}
+.container {
+    background-color: #09093a;
+}
