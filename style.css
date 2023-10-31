@@ -1,32 +1,51 @@
 html {
     background-color: #e4e4e4;
-    font-family: /*'Rubik Mono One',*/ monospace;
+    font-family: monospace;
+    background-image: url("images/lined_paper.png");
 }
 
 body {
-    width: 66%;
+    width: 50%;
     margin: auto;
     text-align: center;
-}
-
-button img {
-    width: 50px;
-    height: 50px;
 }
 
 .arena {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 10px;
 }
 
 .container {
     background-color: whitesmoke;
     border: 2px solid black;
     border-radius: 2px;
+    padding: 0px 20px 20px 20px;
 }
 
 .selection {
     width: 150px;
     height: 150px;
+    margin-bottom: 20px;
 }
 
+.buttons {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button img {
+    width: 50px;
+    height: 50px;
+    margin: 4px 0px 2px 0px;
+}
+
+.player button img {
+    transform: rotate(45deg);
+}
+
+.computer button img {
+    transform: rotate(-45deg);
+}
