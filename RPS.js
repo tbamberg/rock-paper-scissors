@@ -4,7 +4,8 @@ let computerChoice = "";
 let roundCount = 0;
 let playerScore = 0;
 let computerScore = 0;
-let result = "";
+let result = document.querySelector(".result h2");
+let score = document.querySelector(".score h2");
 
 function getComputerChoice() {
     computerChoice = options[Math.floor(Math.random() * 3)];
@@ -27,76 +28,66 @@ function playRound() {
     roundCount++;
     setPlayerSelection(playerChoice);
     setComputerSelection(getComputerChoice());
-
-    if (roundCount >= 5) {
-        
-    }
+    console.log(playerChoice + " vs " + computerChoice);
 
     if (computerChoice == "rock") {
         if (playerChoice == "rock") {
-            return "Tie";
+            setScore("Tie");
         } else if (playerChoice = "paper") {
-            return "Win";
+            setScore("Win");
         } else if (playerChoice == "scissors") {
-            return "Lose";
+            setScore("Lose");
         }
     } else if (computerChoice == "paper") {
         if (playerChoice == "rock") {
-            return "Lose";
+            setScore("Lose");
         } else if (playerChoice = "paper") {
-            return "Tie";
+            setScore("Tie");
         } else if (playerChoice == "scissors") {
-            return "Win";
+            setScore("Win");
         }
     } else if (computerChoice == "scissors") { 
         if (playerChoice == "rock") {
-            return "Win";
+            setScore("Win");
         } else if (playerChoice = "paper") {
-            return "Lose";
+            setScore("Lose");
         } else if (playerChoice == "scissors") {
-            return "Tie";
+            setScore("Tie");
         }
     }
+
+    if (roundCount >= 5) endGame();
 }
 
-function result() {
+function setScore(roundOutcome) {
+    console.log(roundOutcome);
 
-
-    for (let i = 0; i < 5; i++) {
-        result = playRound();
-        if (result == "Win") {
-            playerScore++;
-        } else if (result == "Lose") {
-            computerScore++;
-        }
-        console.log(result);
+    if (roundOutcome == "Win") {
+        ++playerScore;
+    } else if (roundOutcome == "Lose") {
+        ++computerScore;
     }
+
+    score.textContent = playerScore + " - " + computerScore;
+    result.textContent = "You " + roundOutcome;
+}
+
+function endGame() {
+    roundCount = 0;
 
     if (playerScore > computerScore) {
-        return ("You Win! " + playerScore + " to " + computerScore);
+        alert("You Win! " + playerScore + " to " + computerScore);
     } else if (playerScore < computerScore) {
-        return ("You Lose! " + playerScore + " to " + computerScore);
+        alert("You Lose! " + playerScore + " to " + computerScore);
     } else {
-        return ("You Tie! " + playerScore + " to " + computerScore);
+        alert("You Tie! " + playerScore + " to " + computerScore);
     }
+
+    playerScore = 0;
+    computerScore = 0;
+    score.textContent = playerScore + " - " + computerScore;
+    result.textContent = ("FIGHT");
 }
-
-/* pseudocode
-when clicking rock, set playerChoice = rock
-    change image src for ".player .selection" to rock
-    then start a round
-    roundCount++
-when clicking paper, set playerChoice = paper
-    change image src for ".player .selection" to paper
-    then start a round
-    roundCount++
-when clicking scissors, set playerChoice = scissors
-    change image src for ".player .selection" to scissors
-    then start a round
-    roundCount++
-
-when roundCount == 5, getWinner
-*/
 
 let buttons = document.querySelectorAll(".player button")
 
