@@ -33,7 +33,7 @@ function playRound() {
     if (computerChoice == "rock") {
         if (playerChoice == "rock") {
             setScore("Tie");
-        } else if (playerChoice = "paper") {
+        } else if (playerChoice == "paper") {
             setScore("Win");
         } else if (playerChoice == "scissors") {
             setScore("Lose");
@@ -41,7 +41,7 @@ function playRound() {
     } else if (computerChoice == "paper") {
         if (playerChoice == "rock") {
             setScore("Lose");
-        } else if (playerChoice = "paper") {
+        } else if (playerChoice == "paper") {
             setScore("Tie");
         } else if (playerChoice == "scissors") {
             setScore("Win");
@@ -49,7 +49,7 @@ function playRound() {
     } else if (computerChoice == "scissors") { 
         if (playerChoice == "rock") {
             setScore("Win");
-        } else if (playerChoice = "paper") {
+        } else if (playerChoice == "paper") {
             setScore("Lose");
         } else if (playerChoice == "scissors") {
             setScore("Tie");
@@ -73,20 +73,23 @@ function setScore(roundOutcome) {
 }
 
 function endGame() {
-    roundCount = 0;
+    setTimeout(() => {
+        if (playerScore > computerScore) {
+            alert("You Won! " + playerScore + " to " + computerScore);
+        } else if (playerScore < computerScore) {
+            alert("You Lost! " + playerScore + " to " + computerScore);
+        } else {
+            alert("You Tied! " + playerScore + " to " + computerScore);
+        }
 
-    if (playerScore > computerScore) {
-        alert("You Win! " + playerScore + " to " + computerScore);
-    } else if (playerScore < computerScore) {
-        alert("You Lose! " + playerScore + " to " + computerScore);
-    } else {
-        alert("You Tie! " + playerScore + " to " + computerScore);
-    }
+        roundCount = 0;
+        playerScore = 0;
+        computerScore = 0;
+        score.textContent = playerScore + " - " + computerScore;
+        result.textContent = ("FIGHT");
+    }, 100);
 
-    playerScore = 0;
-    computerScore = 0;
-    score.textContent = playerScore + " - " + computerScore;
-    result.textContent = ("FIGHT");
+    
 }
 
 let buttons = document.querySelectorAll(".player button")
