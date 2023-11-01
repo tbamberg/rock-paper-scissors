@@ -88,8 +88,6 @@ function endGame() {
         score.textContent = playerScore + " - " + computerScore;
         result.textContent = ("FIGHT");
     }, 100);
-
-    
 }
 
 let buttons = document.querySelectorAll(".player button")
